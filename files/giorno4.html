@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giorno 4 — Ultima Mattina · Napoli</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .farewell-quote {
+    text-align: center;
+    padding: 5rem 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .farewell-quote blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--light-gold);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .farewell-quote cite {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-style: normal;
+  }
+
+  .recap-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin: 3rem 0;
+  }
+
+  .recap-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  .recap-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) saturate(0.8);
+    transition: filter 0.5s, transform 0.7s;
+  }
+
+  .recap-item:hover img {
+    filter: brightness(0.4) saturate(1);
+    transform: scale(1.05);
+  }
+
+  .recap-item-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.2rem;
+    background: linear-gradient(to top, rgba(26,18,8,0.95), transparent);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--cream);
+  }
+
+  .recap-item-label small {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .checklist {
+    margin-top: 3rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding-top: 2.5rem;
+  }
+
+  .checklist h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: var(--cream);
+  }
+
+  .checklist ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    font-size: 0.82rem;
+    color: var(--warm-gray);
+    line-height: 1.5;
+    padding: 0.8rem;
+    border: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .checklist li::before {
+    content: '✓';
+    color: var(--gold);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .arrivederci {
+    text-align: center;
+    padding: 5rem 2rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    margin-top: 3rem;
+  }
+
+  .arrivederci h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .arrivederci p {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+
+  .home-btn {
+    display: inline-block;
+    margin-top: 2.5rem;
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+
+  .home-btn:hover {
+    background: var(--gold);
+    color: var(--dark);
+  }
+
+  @media (max-width: 500px) {
+    .recap-grid { grid-template-columns: 1fr; }
+    .recap-item { aspect-ratio: 3/2; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-home">← Panoramica</a>
+  <div class="nav-days">
+    <a href="giorno1.html">1</a>
+    <a href="giorno2.html">2</a>
+    <a href="giorno3.html">3</a>
+    <a href="giorno4.html" class="active">4</a>
+    <a href="spese.html">€</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('../Foto/Napoli%204.jpg');"></div>
+  <div class="page-hero-content">
+    <span class="day-eyebrow">Giorno 04 · Mattina</span>
+    <h1>L'Ultima<br><em>Napoli</em></h1>
+  </div>
+</section>
+
+<main class="day-content">
+
+  <div class="farewell-quote">
+    <blockquote>«Vedi Napoli e poi muori.»</blockquote>
+    <cite>— Proverbio Partenopeo</cite>
+  </div>
+
+  <section class="fascia">
+    <div class="fascia-header">
+      <span class="fascia-tag">Recap del Viaggio</span>
+      <hr>
+    </div>
+
+    <h2>Quattro giorni di meraviglie</h2>
+    <p class="fascia-desc">
+      Prima di partire, un ultimo giro libero tra i luoghi che ti hanno colpito di più. Una colazione al bar, un caffè napoletano rituale, un ultimo sguardo al Vesuvio all'orizzonte. Napoli non si abbandona — ti segue.
+    </p>
+
+    <div class="recap-grid">
+      <div class="recap-item">
+        <img src="../Foto/Pompei1.jpg" alt="Pompei" loading="lazy">
+        <div class="recap-item-label">
+          <small>Giorno 1</small>
+          Scavi di Pompei
+        </div>
+      </div>
+      <div class="recap-item">
+        <img src="../Foto/Reggia%20di%20Caserta%202.jpg" alt="Reggia di Caserta" loading="lazy">
+        <div class="recap-item-label">
+          <small>Giorno 2</small>
+          Reggia di Caserta
+        </div>
+      </div>
+      <div class="recap-item">
+        <img src="../Foto/Vesuvio%202.webp" alt="Vesuvio" loading="lazy">
+        <div class="recap-item-label">
+          <small>Giorno 3 · Mattina</small>
+          Gran Cono del Vesuvio
+        </div>
+      </div>
+      <div class="recap-item">
+        <img src="../Foto/Cristo%20velato%202.jpg" alt="Cristo Velato" loading="lazy">
+        <div class="recap-item-label">
+          <small>Giorno 3 · Pomeriggio</small>
+          Cristo Velato
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <h3>Tappe da non dimenticare</h3>
+      <ul>
+        <li>🍕 La pizza fritta + l'Antica Pizzeria Da Michele</li>
+        <li>🥐 Sfogliatella riccia e zeppole</li>
+        <li>🎎 Souvenir da San Gregorio Armeno</li>
+        <li>🍋 Un limoncello di commiato</li>
+        <li>🥂 Chiaia & Posillipo</li>
+        <li>🍟 Cuoppo di frittura di mare</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <div class="arrivederci">
+    <h2>Arrivederci,<br>Napoli</h2>
+    <p>Fino alla prossima volta · A presto · Parthenope</p>
+    <a href="index.html" class="home-btn">Torna all'Itinerario</a>
+  </div>
+
+</main>
+
+<div class="bottom-nav">
+  <a href="giorno3.html" class="prev">Giorno 3</a>
+  <a href="index.html" class="next">Home</a>
+</div>
+
+<footer>
+  <p>Napoli &amp; Dintorni · Giorno 4 di 4</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spese — Napoli &amp; Dintorni</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .spese-hero {
+    padding: 10rem 2rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .spese-hero p {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .spese-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    font-weight: 300;
+    line-height: 0.95;
+  }
+
+  .spese-hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .spese-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .expense-card {
+    border: 1px solid rgba(201,168,76,0.2);
+    background: linear-gradient(160deg, rgba(201,168,76,0.08), rgba(26,18,8,0.35));
+    padding: 1.5rem;
+  }
+
+  .expense-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0.35rem;
+  }
+
+  .expense-card .section-note {
+    color: var(--warm-gray);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+  }
+
+  .expense-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .expense-table td {
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 0.9rem 0.2rem;
+    font-size: 0.9rem;
+    color: var(--light-gold);
+  }
+
+  .expense-table td:last-child {
+    text-align: right;
+    color: var(--cream);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .expense-table tr.total-row td {
+    border-top: 1px solid rgba(201,168,76,0.45);
+    color: var(--gold);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.18em;
+  }
+
+  .expense-table tr.blank td:last-child {
+    color: rgba(245,239,230,0.45);
+    letter-spacing: 0.12em;
+  }
+
+  .summary-box {
+    border-left: 2px solid var(--gold);
+    background: rgba(201,168,76,0.08);
+    padding: 1.3rem 1.4rem;
+  }
+
+  .summary-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 0.7rem;
+  }
+
+  .summary-box p {
+    color: var(--light-gold);
+    font-size: 0.83rem;
+    line-height: 1.7;
+  }
+
+  .summary-box .grand-total {
+    display: block;
+    margin: 1rem 0 0.6rem;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+  }
+
+  .summary-box .grand-total strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--cream);
+    margin-top: 0.15rem;
+  }
+
+  @media (max-width: 600px) {
+    .spese-hero { padding: 8rem 1.2rem 2rem; }
+    .spese-grid { padding: 0 1.2rem 4.5rem; }
+    .expense-card { padding: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-home">← Panoramica</a>
+  <div class="nav-days">
+    <a href="giorno1.html">1</a>
+    <a href="giorno2.html">2</a>
+    <a href="giorno3.html">3</a>
+    <a href="giorno4.html">4</a>
+    <a href="spese.html" class="active">€</a>
+  </div>
+</nav>
+
+<header class="spese-hero">
+  <p>Pianificazione economica</p>
+  <h1>Spese di <em>Viaggio</em></h1>
+</header>
+
+<main class="spese-grid">
+  <section class="expense-card">
+    <h2>Sezione 1 — Viaggio e logistica</h2>
+    <p class="section-note">Spostamenti e Alloggio</p>
+    <table class="expense-table">
+      <tr>
+        <td>Stima  appartamento 4 notti</td>
+        <td>€100,00</td>
+      </tr>
+      <tr>
+        <td>Viaggio in treno x2</td>
+        <td>€80,00</td>
+      </tr>
+      <tr>
+        <td>Parcheggio Mestre</td>
+        <td>€10,00</td>
+      </tr>
+      <tr class="total-row">
+        <td>Totale</td>
+        <td>€190,00</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="expense-card">
+    <h2>Sezione 2 — Attrazioni</h2>
+    <p class="section-note">Musei, siti e visite culturali</p>
+    <table class="expense-table">
+      <tr>
+        <td>Artecard 3 giorni (UniCoCampania + Pompei inclusa + Reggia ridotta)</td>
+        <td>€41,00</td>
+      </tr>
+      <tr>
+        <td>Napoli Sotterranea</td>
+        <td>€10,00</td>
+      </tr>
+      <tr>
+        <td>Reggia di Caserta ridotta (Artecard)</td>
+        <td>€7,00</td>
+      </tr>
+      <tr>
+        <td>Cappella Sansevero / Cristo Velato</td>
+        <td>€8,00</td>
+      </tr>
+      <tr>
+        <td>Chiostro di Santa Chiara</td>
+        <td>€5,00</td>
+      </tr>
+      <tr class="total-row">
+        <td>Totale attrazioni</td>
+        <td>€71,00</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="expense-card">
+    <h2>Sezione 3 — Stima cibo</h2>
+    <p class="section-note">Stima rapida</p>
+    <table class="expense-table">
+      <tr>
+        <td>Trattoria</td>
+        <td>€30,00</td>
+      </tr>
+      <tr>
+        <td>Cibo giornaliero (€25 x 4 giorni)</td>
+        <td>€100,00</td>
+      </tr>
+      <tr class="total-row">
+        <td>Totale cibo stimato</td>
+        <td>€130,00</td>
+      </tr>
+    </table>
+  </section>
+
+  <aside class="summary-box">
+    <h3>Riepilogo finale</h3>
+    <p>Viaggio e alloggio: <strong>€190</strong><br>Attrazioni: <strong>€71</strong><br>Stima cibo (cautelativo): <strong>€130</strong></p>
+    <span class="grand-total">Totale complessivo<strong>€390</strong></span>
+  </aside>
+</main>
+
+<div class="bottom-nav">
+  <a href="giorno4.html" class="prev">Giorno 4</a>
+  <a href="index.html" class="next">Home</a>
+</div>
+
+<footer>
+  <p>Napoli &amp; Dintorni · Quadro spese viaggio</p>
+</footer>
+
+</body>
+</html>

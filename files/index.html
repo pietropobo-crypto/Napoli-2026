@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Napoli & Dintorni — Il Viaggio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5EFE6;
+    --dark: #1A1208;
+    --gold: #C9A84C;
+    --rust: #B85C30;
+    --warm-gray: #8A7D6B;
+    --light-gold: #E8D5A3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    /*background: url('../Foto/Napoli%204.jpg') center/cover no-repeat;*/
+    background: url('../Foto/NAPOLI.jpg') center/cover no-repeat;
+    transform: scale(1.05);
+    animation: zoomOut 8s ease-out forwards;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(26,18,8,0.3) 0%, rgba(26,18,8,0.65) 60%, rgba(26,18,8,1) 100%);
+  }
+
+  @keyframes zoomOut {
+    from { transform: scale(1.05); }
+    to   { transform: scale(1.0); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 2rem;
+    animation: fadeUp 1.2s ease-out 0.4s both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    color: var(--light-gold);
+    text-transform: uppercase;
+    margin-top: 2rem;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--warm-gray);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .scroll-hint::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  /* INTRO */
+  .intro {
+    padding: 6rem 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--light-gold);
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 3rem auto;
+  }
+
+  /* GIORNI GRID */
+  .giorni-section {
+    padding: 2rem 2rem 8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .giorni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2px;
+  }
+
+  .giorno-card {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+
+  .giorno-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    filter: brightness(0.7);
+  }
+
+  .giorno-card:hover img {
+    transform: scale(1.06);
+    filter: brightness(0.5);
+  }
+
+  .giorno-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,18,8,0.9) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    transition: all 0.4s ease;
+  }
+
+  .giorno-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    opacity: 0.6;
+  }
+
+  .giorno-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.2;
+    margin: 0.3rem 0;
+  }
+
+  .giorno-theme {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .giorno-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+  }
+
+  .giorno-cta::after {
+    content: '→';
+    font-size: 1rem;
+  }
+
+  .giorno-card:hover .giorno-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Card a tutta larghezza sotto le 4 giornate: rapporto orizzontale (4/3 su tutta la griglia = altezza enorme) */
+  .giorno-card--fullrow {
+    grid-column: 1 / -1;
+    aspect-ratio: 5 / 1;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding: 3rem 2rem;
+    text-align: center;
+    color: var(--warm-gray);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .giorni-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
+    .giorno-card { aspect-ratio: 2/3; }
+    .giorno-card.giorno-card--fullrow { aspect-ratio: 3 / 1; }
+    .giorno-num  { font-size: 2.5rem; }
+    .giorno-title { font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="eyebrow">Un viaggio nel Sud Italia</p>
+    <h1>Napoli<br><em>&amp; Dintorni</em></h1>
+    <p class="hero-subtitle">4 giorni · Campania · Arte · Archeologia · Sapori</p>
+  </div>
+  <div class="scroll-hint">Scorri</div>
+</section>
+
+<section class="intro">
+  <p>«Napoli è una città che non si visita — si vive. Ogni vicolo nasconde un millennio, ogni piazza racconta un'epopea.»</p>
+  <div class="divider"></div>
+</section>
+
+<section class="giorni-section">
+  <p class="section-label">L'Itinerario — 4 Giorni</p>
+  <div class="giorni-grid">
+
+    <a class="giorno-card" href="giorno1.html">
+      <img src="../Foto/Pompei1.jpg" alt="Pompei scavi" loading="lazy">
+      <div class="giorno-card-overlay">
+        <span class="giorno-num">01</span>
+        <h2 class="giorno-title">Archeologia<br>&amp; Mare</h2>
+        <span class="giorno-theme">Pompei · Napoli Sotterranea · Lungomare</span>
+        <span class="giorno-cta">Scopri il giorno</span>
+      </div>
+    </a>
+
+    <a class="giorno-card" href="giorno2.html">
+      <img src="../Foto/Reggia%20di%20Caserta%201.jpg" alt="Reggia di Caserta" loading="lazy">
+      <div class="giorno-card-overlay">
+        <span class="giorno-num">02</span>
+        <h2 class="giorno-title">Splendore Reale<br>&amp; Vita Popolare</h2>
+        <span class="giorno-theme">Reggia di Caserta · Quartieri Spagnoli</span>
+        <span class="giorno-cta">Scopri il giorno</span>
+      </div>
+    </a>
+
+    <a class="giorno-card" href="giorno3.html">
+      <img src="../Foto/Vesuvio%201.jpg" alt="Vesuvio" loading="lazy">
+      <div class="giorno-card-overlay">
+        <span class="giorno-num">03</span>
+        <h2 class="giorno-title">Natura &amp;<br>Tesori del Centro</h2>
+        <span class="giorno-theme">Vesuvio · Cristo Velato · Spaccanapoli</span>
+        <span class="giorno-cta">Scopri il giorno</span>
+      </div>
+    </a>
+
+    <a class="giorno-card" href="giorno4.html">
+      <img src="../Foto/Castel%20DellOvo.jpg" alt="Napoli panorama" loading="lazy">
+      <div class="giorno-card-overlay">
+        <span class="giorno-num">04</span>
+        <h2 class="giorno-title">Ultima Mattina<br>a Napoli</h2>
+        <span class="giorno-theme">Recap · Ricordi · Arrivederci</span>
+        <span class="giorno-cta">Scopri il giorno</span>
+      </div>
+    </a>
+
+    <a class="giorno-card giorno-card--fullrow" href="spese.html">
+      <img src="../Foto/Napoli%204.jpg" alt="Riepilogo spese viaggio" loading="lazy">
+      <div class="giorno-card-overlay">
+        <span class="giorno-num">€</span>
+        <h2 class="giorno-title">Spese<br>&amp; Budget</h2>
+        <span class="giorno-theme">Viaggio · Attrazioni · Stima cibo</span>
+        <span class="giorno-cta">Apri riepilogo</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <p>Napoli &amp; Dintorni · Campania, Italia · Il tuo Itinerario</p>
+</footer>
+
+</body>
+</html>
